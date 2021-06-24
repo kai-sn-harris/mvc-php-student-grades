@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# ignore post requests
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^ - [L]
+
+# QSA flag means append query string from request to substituted URL
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
